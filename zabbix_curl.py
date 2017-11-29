@@ -46,7 +46,7 @@ def check_curl(options):
             json_out = shell("curl -s -w '{json_out}' -o /dev/null {curl_params}".format(
                 json_out=json.dumps(json_out),
                 curl_params=options.curl_params,
-            ), capture=True, show_cmd=options.dry_run)
+            ), capture=True, show_cmd=options.verbose)
             if options.verbose:
                 print json_out
             json_out = json.loads(json_out)
