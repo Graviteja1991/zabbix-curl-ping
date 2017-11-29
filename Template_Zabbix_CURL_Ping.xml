@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>3.2</version>
-    <date>2017-11-29T07:35:18Z</date>
+    <date>2017-11-29T09:00:15Z</date>
     <groups>
         <group>
             <name>Templates</name>
@@ -396,8 +396,8 @@
                     <trigger_prototypes>
                         <trigger_prototype>
                             <expression>{Template Zabbix CURL Ping:zabbix_curl_check[{#CURL_PARAMS}].last()}=0</expression>
-                            <recovery_mode>1</recovery_mode>
-                            <recovery_expression>{Template Zabbix CURL Ping:zabbix_curl_check[{#CURL_PARAMS}].last()}=1</recovery_expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
                             <name>zabbix_curl_check[{#CURL_PARAMS}] failed</name>
                             <correlation_mode>0</correlation_mode>
                             <correlation_tag/>
@@ -411,7 +411,7 @@
                             <tags/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{Template Zabbix CURL Ping:zabbix_curl_check[{#CURL_PARAMS},http_code].last()}&lt;&gt;{$EXPTECTED_HTTP_CODE}</expression>
+                            <expression>{Template Zabbix CURL Ping:zabbix_curl_check[{#CURL_PARAMS},http_code].last()}&lt;&gt;{$EXPECTED_HTTP_CODE}</expression>
                             <recovery_mode>0</recovery_mode>
                             <recovery_expression/>
                             <name>{#CURL_PARAMS} http_code &lt;&gt; {$EXPECTED_HTTP_CODE}</name>
