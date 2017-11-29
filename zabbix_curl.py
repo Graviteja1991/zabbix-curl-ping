@@ -43,10 +43,13 @@ def check_curl(options):
             for item_name in options.discovery_items:
                 json_out[item_name] = '%{' + item_name + '}'
 
-            json_out = json.loads(shell("curl -s -w '{json_out}' -o /dev/null {curl_params}".format(
+            json_out = shell("curl -s -w '{json_out}' -o /dev/null {curl_params}".format(
                 json_out=json.dumps(json_out),
                 curl_params=options.curl_params,
-            ), capture=True, show_cmd=options.dry_run))
+            ), capture=True, show_cmd=options.dry_run)
+            if options.verbose:
+                print json_out
+            json_out = json.loads(json_out)
 
             for item_name in options.discovery_items:
                 if item_name not in result or result[item_name] < float(json_out[item_name].replace(',','.')):
