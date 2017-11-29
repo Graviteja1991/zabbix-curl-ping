@@ -10,7 +10,7 @@ git clone https://github.com/Slach/zabbix-curl-ping.git
 cp -fv /opt/zabbix-curl-ping/UserParams.conf /etc/zabbix/zabbix_agentd.conf.d/zabbix_curl_ping.conf
 chmod +x /opt/zabbix-curl-ping/zabbix_curl.py
 # check discovery working
-sudo -H -u zabbix /opt/zabbix-curl-ping/zabbix_curl.py --discovery --curl-params="https://google.com"
+sudo -H -u zabbix /opt/zabbix-curl-ping/zabbix_curl.py --discovery=True --curl-params="https://google.com"
 sudo -H -u zabbix /opt/zabbix-curl-ping/zabbix_curl.py --curl-params="https://google.com"
 ```
 
