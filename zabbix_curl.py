@@ -31,10 +31,7 @@ def shell(cmd, expected_exit_code=0, stdin=None, stdout=None, stderr=None, captu
 
 
 def discovery(options):
-    discovery_out = {"data": []}
-    for item_name in options.discovery_items:
-        discovery_out["data"].append({"{#CURL_PARAMS}": options.curl_params, "{#ITEM_NAME}": item_name})
-    print json.dumps(discovery_out)
+    print json.dumps({"data": [{"{#CURL_PARAMS}": options.curl_params}]})
 
 
 def check_curl(options):
@@ -67,10 +64,12 @@ def check_curl(options):
             if options.dry_run:
                 print cmd
             else:
-                shell(cmd, show_cmd=False, capture=True)
+                shell(cmd, show_cmd=options.verbose, capture=True)
 
         print '1'
-    except (RuntimeError, KeyError, ValueError):
+    except (RuntimeError, KeyError, ValueError) as e:
+        if options.verbose:
+            raise e
         print '0'
 
 
@@ -101,6 +100,10 @@ if __name__ == '__main__':
 
     parser.add_argument(
         "--dry-run", type=bool, default=False, help="Don't run zabbix-sender for measurement",
+    )
+
+    parser.add_argument(
+        "--verbose", type=bool, default=False, help="Show debug messages",
     )
 
     args = parser.parse_args()
