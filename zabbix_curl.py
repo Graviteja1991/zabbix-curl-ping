@@ -3,7 +3,6 @@ import os
 import tempfile
 import subprocess
 import json
-import logging
 import argparse
 
 
@@ -27,6 +26,7 @@ def shell(cmd, expected_exit_code=0, stdin=None, stdout=None, stderr=None, captu
             raise RuntimeError('%s exit code = %s', (cmd, exit_code))
 
     if capture:
+        captured.seek(0)
         return captured.read()
 
 
