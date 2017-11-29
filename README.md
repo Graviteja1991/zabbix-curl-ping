@@ -30,6 +30,6 @@ Timeout=30
 Open Zabbix Menu:
 Configuration -> Templates -> Import
 
-Choose Template_Zabbix_MTR_Example.xml
+Choose Template_Zabbix_CURL_Ping.xml
 
 ## Modify Items, Triggers and Graphs for your latency and destination hosts requirements
