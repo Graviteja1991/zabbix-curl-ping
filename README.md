@@ -1,5 +1,5 @@
 # zabbix-curl-ping
-Zabbix ping remove hosts over curl
+Zabbix ping remote hosts via curl
 
 # Installation
 ```bash
