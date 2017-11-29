@@ -11,7 +11,7 @@ cp -fv /opt/zabbix-curl-ping/UserParams.conf /etc/zabbix/zabbix_agentd.conf.d/za
 chmod +x /opt/zabbix-curl-ping/zabbix_curl.py
 # check discovery working
 sudo -H -u zabbix /opt/zabbix-curl-ping/zabbix_curl.py --discovery=True --curl-params="https://google.com"
-sudo -H -u zabbix /opt/zabbix-curl-ping/zabbix_curl.py --curl-params="https://google.com"
+sudo -H -u zabbix /opt/zabbix-curl-ping/zabbix_curl.py --curl-params="https://google.com" --verbose=True
 ```
 
 # Tuning for /etc/zabbix/zabbix_agentd.conf
