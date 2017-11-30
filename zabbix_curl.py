@@ -31,7 +31,11 @@ def shell(cmd, expected_exit_code=0, stdin=None, stdout=None, stderr=None, captu
 
 
 def discovery(options):
-    print json.dumps({"data": [{"{#CURL_PARAMS}": options.curl_params}]})
+    discovery_out = {"data": []}
+    for curl_params in options.discovery:
+        if curl_params:
+            discovery_out["data"].append({"{#CURL_PARAMS}": curl_params})
+    print json.dumps(discovery_out)
 
 
 def check_curl(options):
@@ -79,12 +83,12 @@ def check_curl(options):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument(
-        "--discovery", type=bool, default=False,
-        help="Return LLD discovery JSON for create Zabbix Tapper items and Triggers",
+        "--discovery", nargs="+", default=(),
+        help="Return LLD discovery JSON for create Zabbix Tapper items and Triggers for each argument",
     )
     parser.add_argument(
-        "--discovery-items", type=str,
-        default="time_total,time_namelookup,time_connect,time_pretransfer,time_starttransfer,size_download,http_code",
+        "--discovery-items", nargs="*",
+        default=["time_total","time_namelookup","time_connect","time_pretransfer","time_starttransfer","size_download","http_code",],
         help="Comma separated list LLD {#ITEM_NAME}, see man curl for --write-out args",
    )
     parser.add_argument(
@@ -110,7 +114,6 @@ if __name__ == '__main__':
     )
 
     args = parser.parse_args()
-    args.discovery_items = [o.strip() for o in str(args.discovery_items).split(",")]
 
     if args.discovery:
         discovery(args)

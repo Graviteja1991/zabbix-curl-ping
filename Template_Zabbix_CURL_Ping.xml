@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>3.2</version>
-    <date>2017-11-29T09:00:15Z</date>
+    <date>2017-11-30T14:45:25Z</date>
     <groups>
         <group>
             <name>Templates</name>
@@ -25,13 +25,13 @@
             <items/>
             <discovery_rules>
                 <discovery_rule>
-                    <name>AWS S3 EU-WEST-1 discovery</name>
+                    <name>Zabbix CURL Ping discovery</name>
                     <type>0</type>
                     <snmp_community/>
                     <snmp_oid/>
-                    <key>zabbix_curl_discovery[https://s3.eu-west-1.amazonaws.com]</key>
+                    <key>zabbix_curl_discovery[https://google.com,https://ya.ru]</key>
                     <delay>600</delay>
-                    <status>0</status>
+                    <status>1</status>
                     <allowed_hosts/>
                     <snmpv3_contextname/>
                     <snmpv3_securityname/>
@@ -143,7 +143,11 @@
                             <port/>
                             <description/>
                             <inventory_link>0</inventory_link>
-                            <applications/>
+                            <applications>
+                                <application>
+                                    <name>CURL Ping</name>
+                                </application>
+                            </applications>
                             <valuemap/>
                             <logtimefmt/>
                             <application_prototypes/>
@@ -183,7 +187,11 @@
                             <port/>
                             <description/>
                             <inventory_link>0</inventory_link>
-                            <applications/>
+                            <applications>
+                                <application>
+                                    <name>CURL Ping</name>
+                                </application>
+                            </applications>
                             <valuemap/>
                             <logtimefmt/>
                             <application_prototypes/>
@@ -223,7 +231,11 @@
                             <port/>
                             <description/>
                             <inventory_link>0</inventory_link>
-                            <applications/>
+                            <applications>
+                                <application>
+                                    <name>CURL Ping</name>
+                                </application>
+                            </applications>
                             <valuemap/>
                             <logtimefmt/>
                             <application_prototypes/>
@@ -263,7 +275,11 @@
                             <port/>
                             <description/>
                             <inventory_link>0</inventory_link>
-                            <applications/>
+                            <applications>
+                                <application>
+                                    <name>CURL Ping</name>
+                                </application>
+                            </applications>
                             <valuemap/>
                             <logtimefmt/>
                             <application_prototypes/>
@@ -303,7 +319,11 @@
                             <port/>
                             <description/>
                             <inventory_link>0</inventory_link>
-                            <applications/>
+                            <applications>
+                                <application>
+                                    <name>CURL Ping</name>
+                                </application>
+                            </applications>
                             <valuemap/>
                             <logtimefmt/>
                             <application_prototypes/>
@@ -343,7 +363,11 @@
                             <port/>
                             <description/>
                             <inventory_link>0</inventory_link>
-                            <applications/>
+                            <applications>
+                                <application>
+                                    <name>CURL Ping</name>
+                                </application>
+                            </applications>
                             <valuemap/>
                             <logtimefmt/>
                             <application_prototypes/>
@@ -480,15 +504,15 @@
                             <name>Timers zabbix_curl_check[{#CURL_PARAMS}]</name>
                             <width>900</width>
                             <height>200</height>
-                            <yaxismin>0.0000</yaxismin>
-                            <yaxismax>100.0000</yaxismax>
+                            <yaxismin>0</yaxismin>
+                            <yaxismax>100</yaxismax>
                             <show_work_period>1</show_work_period>
                             <show_triggers>1</show_triggers>
                             <type>0</type>
                             <show_legend>1</show_legend>
                             <show_3d>0</show_3d>
-                            <percent_left>0.0000</percent_left>
-                            <percent_right>0.0000</percent_right>
+                            <percent_left>0</percent_left>
+                            <percent_right>0</percent_right>
                             <ymin_type_1>0</ymin_type_1>
                             <ymax_type_1>0</ymax_type_1>
                             <ymin_item_1>0</ymin_item_1>
@@ -540,7 +564,7 @@
             <macros>
                 <macro>
                     <macro>{$EXPECTED_HTTP_CODE}</macro>
-                    <value>307</value>
+                    <value>200</value>
                 </macro>
                 <macro>
                     <macro>{$MAX_CONNECT_TIME}</macro>
