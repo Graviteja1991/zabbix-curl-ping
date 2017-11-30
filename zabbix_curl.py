@@ -106,11 +106,11 @@ if __name__ == '__main__':
     )
 
     parser.add_argument(
-        "--dry-run", type=bool, default=False, help="Don't run zabbix-sender for measurement",
+        "--dry-run", type=bool, action="store_true", default=False, help="Don't run zabbix-sender for measurement",
     )
 
     parser.add_argument(
-        "--verbose", type=bool, default=False, help="Show debug messages",
+        "--verbose", type=bool, action="store_true", default=False, help="Show debug messages",
     )
 
     args = parser.parse_args()
